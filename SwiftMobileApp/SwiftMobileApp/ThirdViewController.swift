@@ -1,5 +1,5 @@
 //
-//  TrackerViewController.swift
+//  ThirdViewController.swift
 //  test
 //
 //  Created by Sankar Ramanathan on 6/16/21.
@@ -24,13 +24,12 @@ let dataSourceAttendanceStatus = ["Present", "Absent", "Tardy"]
 
 
 
-class TrackerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var names: [String] = ["Karthik", "Keerthi", "Amma", "Appa"]
     
     
-    @IBOutlet weak var lblAttendanceInfo: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +74,7 @@ class TrackerViewController: UIViewController, UITableViewDataSource, UITableVie
 
 //}
 
-extension TrackerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ThirdViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     

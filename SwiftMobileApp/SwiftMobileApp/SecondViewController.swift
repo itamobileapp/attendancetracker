@@ -1,5 +1,5 @@
 //
-//  SelectionViewController.swift
+//  SecondViewController.swift
 //  test
 //
 //  Created by Sankar Ramanathan on 6/14/21.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SelectionViewController: UIViewController {
+class SecondViewController: UIViewController {
     
     private let dataSourceBranch = ["Evergreen","Cupertino","Fremont","Pleasanton"]
     private let dataSourceGrade = ["Grade 1","Grade 2"]
     private let dataSourceSection = ["Section A","Section B"]
 
-    @IBOutlet weak var lblProvideInfo: UILabel!
     @IBOutlet weak var btnSelectionClear: UIButton!
     @IBOutlet weak var btnSelectionSubmit: UIButton!
     @IBOutlet var lblBranch: UIView!
@@ -48,7 +47,7 @@ class SelectionViewController: UIViewController {
     
 }
 
-extension SelectionViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension SecondViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in ddlCommon: UIPickerView) -> Int {
         if (ddlCommon == ddlSection) {
