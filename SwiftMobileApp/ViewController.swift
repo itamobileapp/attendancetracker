@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lblSubmitLogin: UILabel!
 
+    @IBOutlet weak var btnOKLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,21 +30,55 @@ class ViewController: UIViewController {
         btnCancel.layer.cornerRadius = 10
         lblLogin.layer.cornerRadius = 5
         lblLogin.layer.masksToBounds = true
-     //   lblSuccess.layer.cornerRadius = 5
+     // lblSuccess.layer.cornerRadius = 5
         lblSubmitLogin.layer.cornerRadius = 5
+        btnOKLogin.isHidden = true
         
         
-        //txtLogin.heightAnchor = 40
-        // Do any additional setup after loading the view.
+        //parseJSON()
+        
+ 
     }
+    
+    
+    private func parseJSON() {
+        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
+            
+            return
+        }
+        let url = URL(fileURLWithPath: path)
+        
+        var result: Result?
+        do {
+            let jsonData = try Data(contentsOf: url)
+            result = try JSONDecoder().decode(Result.self, from:jsonData)
+            
+            if let result = result {
+                print(result)
+            }
+            else {
+                print ("Failed to pass")
+            }
+        }
+        catch {
+            print ("Error: \(error)")
+        }
+    }
+    
+    
+    
+    
+    
     
     @IBAction func clickSubmit(_ sender: UIButton) {
         lblSubmitLogin.isHidden = false
+        btnOKLogin.isHidden = false
   
     }
     
     @IBAction func clickClear(_ sender: UIButton) {
         lblSubmitLogin.isHidden = true
+        btnOKLogin.isHidden = true
         txtLogin?.text = ""
         txtPassword?.text = ""
         
@@ -53,4 +88,12 @@ class ViewController: UIViewController {
     }
     
 }
+
+struct Result: Codable {
+    let userId : String
+    let pwd : String
+}
+
+
+
 

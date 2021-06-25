@@ -21,6 +21,7 @@
 		87CBC10C267FF5CF001991B3 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC106267FF5CD001991B3 /* Selection.storyboard */; };
 		87CBC10D267FF5CF001991B3 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC107267FF5CE001991B3 /* Tracker.storyboard */; };
 		87CBC10E267FF5CF001991B3 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC108267FF5CF001991B3 /* Table.storyboard */; };
+		87CBC114268172A1001991B3 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC113268172A1001991B3 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		87CBC106267FF5CD001991B3 /* Selection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
 		87CBC107267FF5CE001991B3 /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
 		87CBC108267FF5CF001991B3 /* Table.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
+		87CBC113268172A1001991B3 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		87CBC0CD267FEFB7001991B3 /* SwiftMobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				87CBC113268172A1001991B3 /* data.json */,
 				87CBC0CE267FEFB7001991B3 /* AppDelegate.swift */,
 				87CBC0D0267FEFB7001991B3 /* SceneDelegate.swift */,
 				87CBC0DA267FEFC8001991B3 /* Assets.xcassets */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CBC102267FF56A001991B3 /* Main.storyboard in Resources */,
+				87CBC114268172A1001991B3 /* data.json in Resources */,
 				87CBC10C267FF5CF001991B3 /* Selection.storyboard in Resources */,
 				87CBC0DE267FEFC8001991B3 /* LaunchScreen.storyboard in Resources */,
 				87CBC10E267FF5CF001991B3 /* Table.storyboard in Resources */,

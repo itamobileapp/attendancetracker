@@ -47,11 +47,10 @@
                                 </state>
                                 <connections>
                                     <action selector="clickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="He1-BG-kDr"/>
-                                    <segue destination="hha-Pj-vcg" kind="show" id="RjX-zk-QGD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mq-kE-JgV">
-                                <rect key="frame" x="245" y="391" width="127" height="42"/>
+                                <rect key="frame" x="245" y="391" width="113" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.4431372549" green="0.29411764709999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -62,7 +61,7 @@
                                     <action selector="clickClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R7t-Fu-ja9"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information Entered Successfully" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shx-IF-Ljj">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shx-IF-Ljj">
                                 <rect key="frame" x="20" y="44" width="360" height="159"/>
                                 <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
@@ -78,6 +77,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYT-ad-ZoJ">
+                                <rect key="frame" x="171" y="149" width="58" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4431372549" green="0.29411764709999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.94117647059999998" green="0.2156862745" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hha-Pj-vcg" kind="show" id="i52-Zf-9WZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -90,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="btnCancel" destination="5mq-kE-JgV" id="4nl-bc-cpN"/>
+                        <outlet property="btnOKLogin" destination="fYT-ad-ZoJ" id="hQr-Tz-EgU"/>
                         <outlet property="btnSubmit" destination="TQS-A5-Q44" id="Icv-fT-65d"/>
                         <outlet property="lblLogin" destination="nPn-U2-FCe" id="HGk-rg-Hqu"/>
                         <outlet property="lblPassword" destination="c6X-Ws-mOA" id="e3O-S0-BhY"/>

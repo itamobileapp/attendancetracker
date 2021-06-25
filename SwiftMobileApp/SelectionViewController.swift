@@ -25,6 +25,7 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var ddlBranch: UIPickerView!
     @IBOutlet weak var ddlGrade: UIPickerView!
     @IBOutlet weak var ddlSection: UIPickerView!
+    @IBOutlet weak var btnOKSubmit: UIButton!
     @IBOutlet weak var lblTeacherName: UILabel!
     
     override func viewDidLoad() {
@@ -40,9 +41,11 @@ class SelectionViewController: UIViewController {
     }
     @IBAction func clickSubmitSelection(_ sender: UIButton) {
         lblSubmitSelection.isHidden = false
+        btnOKSubmit.isHidden = false
     }
     @IBAction func clickClearSelection(_ sender: UIButton) {
         lblSubmitSelection.isHidden = true
+        btnOKSubmit.isHidden = true
         lblTeacherName.text = "Teacher Name"
     }
     
@@ -78,13 +81,19 @@ extension SelectionViewController: UIPickerViewDelegate, UIPickerViewDataSource 
 
     func pickerView(_ ddlCommon: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (ddlCommon == ddlSection) {
-            lblTeacherName.text = dataSourceSection[row]
+            //lblTeacherName.text = dataSourceSection[row]
+            if dataSourceSection[row] == "Section A" {
+                lblTeacherName.text = "Ponmathi Rajendran"
+            }
+            else if dataSourceSection[row] == "Section B" {
+                lblTeacherName.text = "Sankar Ramanathan"
+            }
         }
         else if (ddlCommon == ddlBranch) {
-            lblTeacherName.text = dataSourceBranch[row]
+            //lblTeacherName.text = dataSourceBranch[row]
         }
         else if (ddlCommon == ddlGrade) {
-            lblTeacherName.text = dataSourceGrade[row]
+            //lblTeacherName.text = dataSourceGrade[row]
         }
 
     }
