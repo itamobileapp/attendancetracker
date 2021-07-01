@@ -2,7 +2,6 @@
 Middleware Logic - Python RESTful APIs
 '''
 
-from sqlite3 import dbapi2
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 import sqlite3
