@@ -1,0 +1,124 @@
+--------------------------------------
+Sample responses from the RESTful APIs
+and API request formats
+--------------------------------------
+The names of the headers written in the request formats are the real current header names.
+(These are probably needed in the API calls.)
+
+
+
+
+
+User Login - String
+
+Sample Output:
+"Login Success" OR "Login Failure"
+
+Request Format:
+    URL: http://server-address/userlogin
+    Headers:
+        email (string)
+        password (string)
+
+
+
+
+
+Branch Info - Dictionary: { branchId: branch }
+
+Sample Output:
+{
+    "1": "Evergreen",
+    "2": "Fremont",
+    "3": "Pleasanton",
+    "4": "Cupertino"
+}
+
+Note: Though the returned dictionary has IDs as integers, the test requests seem to return strings. 
+This applies for all returned dictionaries in the API. (Keep in mind)
+
+Request Format:
+    URL: http://server-address/branchinfo
+
+
+
+
+
+Grade Info - Dictionary: { gradeId: grade } for selected branch
+
+Sample Output:
+{
+    "1": "Grade 1",
+    "2": "Grade 2",
+    "3": "Grade 3",
+    "4": "Grade 4",
+    "5": "Grade 5",
+    "6": "Grade 6",
+    "7": "Grade 7"
+}
+
+Request Format:
+    URL: http://server-address/gradeinfo
+    Headers:
+        branchId (integer)
+
+
+
+
+
+Section Info - Dictionary: { sectionId: [ section, teacher ] } for selected grade
+
+Sample Output:
+{
+    "1": [
+        "Section A",
+        "Lakshmanan"
+    ],
+    "2": [
+        "Section B",
+        "Shanthi"
+    ]
+}
+
+Note: Each returned key-value pair has a list as the value, in the form [section, teacher].
+
+Request Format:
+    URL: http://server-address/sectioninfo
+    Headers:
+        gradeId (integer)
+
+
+
+
+
+Student Info - Dictionary: { studentId: student } for selected section
+
+Sample Output:
+{
+    "9": "Pranith R.",
+    "10": "Rahul T.",
+    "11": "Sahana S."
+}
+
+Request Format:
+    URL: http://server-address/studentinfo
+    Headers:
+        sectionId (integer)
+
+
+
+
+
+Submit Attendance - String
+
+Sample Output:
+"Successfully Submitted" OR "Successfully Updated"
+
+Note: Still need to add ways to address failures, but this works well for now.
+
+Request Format:
+    URL: http://server-address/submitattendance
+    Headers:
+        studentId (integer)
+        date (string) - May be changed to timestamp later on.
+        status (string)
