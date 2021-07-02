@@ -17,27 +17,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblPassword: UILabel!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var txtPassword: UITextField?
-    
-    @IBOutlet weak var lblSubmitLogin: UILabel!
+    @IBOutlet weak var btnOK: UIButton!
+    @IBOutlet weak var lblMessage: UILabel!
 
-    @IBOutlet weak var btnOKLogin: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblPassword.layer.cornerRadius = 5
         lblPassword.layer.masksToBounds = true
         btnSubmit.layer.cornerRadius = 10
         btnCancel.layer.cornerRadius = 10
+        btnOK.layer.cornerRadius = 5
         lblLogin.layer.cornerRadius = 5
         lblLogin.layer.masksToBounds = true
-     // lblSuccess.layer.cornerRadius = 5
-        lblSubmitLogin.layer.cornerRadius = 5
-        btnOKLogin.isHidden = true
-        
-        
-        //parseJSON()
-        
- 
+        lblMessage.layer.cornerRadius = 5
+        lblMessage?.isHidden = true;
+        btnOK?.isHidden = true
+        txtLogin?.becomeFirstResponder();
     }
     
     
@@ -66,25 +61,33 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
     @IBAction func clickSubmit(_ sender: UIButton) {
-        lblSubmitLogin.isHidden = false
-        btnOKLogin.isHidden = false
-  
-    }
+        
+        if (txtLogin?.text  == "") {
+            lblMessage?.textColor = UIColor.red
+            lblMessage?.isHidden = false
+            lblMessage?.text = "Please enter the User Name"
+        }
+        else if (txtPassword?.text == "") {
+            lblMessage?.textColor = UIColor.red
+            lblMessage?.isHidden = false
+            lblMessage?.text = "Please enter the Password"
+        }
+        else {
+            lblMessage?.isHidden = false
+            lblMessage?.text = "Logged In Successfully"
+            lblMessage?.textColor = UIColor.systemGreen
+            btnOK?.isHidden = false
+        }
+  }
     
     @IBAction func clickClear(_ sender: UIButton) {
-        lblSubmitLogin.isHidden = true
-        btnOKLogin.isHidden = true
+        lblMessage?.isHidden = true
+        btnOK?.isHidden = true
+        txtLogin?.text = ""
         txtLogin?.text = ""
         txtPassword?.text = ""
-        
-        
-        
-        
+        txtLogin?.becomeFirstResponder();
     }
     
 }

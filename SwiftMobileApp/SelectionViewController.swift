@@ -14,20 +14,22 @@ class SelectionViewController: UIViewController {
     private let dataSourceGrade = ["Grade 1","Grade 2"]
     private let dataSourceSection = ["Section A","Section B"]
 
-    @IBOutlet weak var lblProvideInfo: UILabel!
-    @IBOutlet weak var btnSelectionClear: UIButton!
-    @IBOutlet weak var btnSelectionSubmit: UIButton!
-    @IBOutlet var lblBranch: UIView!
+    @IBOutlet weak var btnOK: UIButton!
+    @IBOutlet weak var lblCaption: UILabel!
+    @IBOutlet weak var btnClear: UIButton!
+    @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var lblMessage: UILabel!
+    @IBOutlet weak var lblBranch: UILabel!
     @IBOutlet weak var lblGrade: UILabel!
     @IBOutlet weak var lblSection: UILabel!
+
     @IBOutlet weak var lblTeacher: UILabel!
-    @IBOutlet weak var lblSubmitSelection: UILabel!
+    @IBOutlet weak var lblTeacherName: UILabel!
+
     @IBOutlet weak var ddlBranch: UIPickerView!
     @IBOutlet weak var ddlGrade: UIPickerView!
     @IBOutlet weak var ddlSection: UIPickerView!
-    @IBOutlet weak var btnOKSubmit: UIButton!
-    @IBOutlet weak var lblTeacherName: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ddlBranch.dataSource = self
@@ -36,17 +38,28 @@ class SelectionViewController: UIViewController {
         ddlGrade.delegate = self
         ddlSection.dataSource = self
         ddlSection.delegate = self
-        btnSelectionClear.layer.cornerRadius = 10
-        btnSelectionSubmit.layer.cornerRadius = 10
+        btnSubmit.layer.cornerRadius = 10
+        btnSubmit.layer.cornerRadius = 10
+        btnSubmit.layer.cornerRadius = 10
+        lblBranch.layer.cornerRadius = 10
+        lblGrade.layer.cornerRadius = 10
+        lblSection.layer.cornerRadius = 10
+        lblTeacher.layer.cornerRadius = 10
+        lblTeacherName.layer.cornerRadius = 10
+        lblTeacherName.text = ""
+        lblMessage.isHidden = true
+        
+        btnOK.isHidden = true
     }
-    @IBAction func clickSubmitSelection(_ sender: UIButton) {
-        lblSubmitSelection.isHidden = false
-        btnOKSubmit.isHidden = false
+    
+    @IBAction func clickSubmit(_ sender: UIButton) {
+        lblMessage.isHidden = false
+        btnOK.isHidden = false
     }
-    @IBAction func clickClearSelection(_ sender: UIButton) {
-        lblSubmitSelection.isHidden = true
-        btnOKSubmit.isHidden = true
-        lblTeacherName.text = "Teacher Name"
+    
+    @IBAction func clickClear(_ sender: UIButton) {
+        lblMessage.isHidden = true
+        btnOK.isHidden = true
     }
     
 }
@@ -81,19 +94,18 @@ extension SelectionViewController: UIPickerViewDelegate, UIPickerViewDataSource 
 
     func pickerView(_ ddlCommon: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (ddlCommon == ddlSection) {
-            //lblTeacherName.text = dataSourceSection[row]
             if dataSourceSection[row] == "Section A" {
                 lblTeacherName.text = "Ponmathi Rajendran"
             }
             else if dataSourceSection[row] == "Section B" {
-                lblTeacherName.text = "Sankar Ramanathan"
+                lblTeacherName.text = "Subhashini Kannan"
             }
         }
         else if (ddlCommon == ddlBranch) {
-            //lblTeacherName.text = dataSourceBranch[row]
+            lblTeacherName.text = ""
         }
         else if (ddlCommon == ddlGrade) {
-            //lblTeacherName.text = dataSourceGrade[row]
+            lblTeacherName.text = ""
         }
 
     }
