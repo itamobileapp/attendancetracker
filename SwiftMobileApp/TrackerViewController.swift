@@ -10,20 +10,14 @@ import UIKit
 
 
 class AttendanceTableViewCell : UITableViewCell {
-    @IBOutlet weak var lblStudentName: UILabel!
     @IBOutlet weak var ddlAttendanceStatus: UIPickerView!
-    
-    
-
+    @IBOutlet weak var lblStudentName: UILabel!
     
     
 }
 
 
 let dataSourceAttendanceStatus = ["Present", "Absent", "Tardy"]
-
-
-
 
 class TrackerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -34,23 +28,30 @@ class TrackerViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBOutlet weak var lblAttendanceInfo: UILabel!
-    
-    @IBOutlet weak var lblTrackerMessage: UILabel!
-    @IBOutlet weak var btnTrackerSubmit: UIButton!
-    @IBOutlet weak var btnTrackerCancel: UIButton!
-    @IBOutlet weak var btnTrackerCancelYes: UIButton!
-    @IBOutlet weak var btnTrackerCancelNo: UIButton!
-    
+    @IBOutlet weak var btnCancelNo: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var btnCancelYes: UIButton!
+    @IBOutlet weak var lblMessage: UILabel!
+
     var yesButtonClicked = false
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        btnSubmit.layer.masksToBounds = true
+        btnSubmit.layer.cornerRadius = 10
+        btnCancel.layer.masksToBounds = true
+        btnCancel.layer.cornerRadius = 10
+        btnCancelYes.layer.masksToBounds = true
+        btnCancelYes.layer.cornerRadius = 10
+        btnCancelNo.layer.masksToBounds = true
+        btnCancelNo.layer.cornerRadius = 10
+        lblMessage.textColor = UIColor.systemGreen
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +66,10 @@ class TrackerViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.ddlAttendanceStatus.dataSource = self
         cell.ddlAttendanceStatus.delegate = self
         
+        cell.lblStudentName.layer.cornerRadius = 10
+        cell.lblStudentName.layer.masksToBounds = true
+
+        
         if (yesButtonClicked) {
             //put working code here
             cell.ddlAttendanceStatus.selectRow(0, inComponent: 0, animated: false)
@@ -74,47 +79,41 @@ class TrackerViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    @IBAction func clickCancelNo(_ sender: Any) {
+        lblMessage.isHidden = true
+        btnCancelYes.isHidden = true
+        btnCancelNo.isHidden = true
+    }
     
     
-    @IBAction func clickTrackerCancelYes(_ sender: UIButton) {
-        lblTrackerMessage.isHidden = true
-        btnTrackerCancelYes.isHidden = true
-        btnTrackerCancelNo.isHidden = true
+    @IBAction func clickCancelYes(_ sender: Any) {
+        lblMessage.isHidden = true
+        btnCancelYes.isHidden = true
+        btnCancelNo.isHidden = true
         yesButtonClicked = true
         
-        
-        
-    }
-    
-    
-    @IBAction func clickTrackerSubmit(_ sender: UIButton) {
-        lblTrackerMessage.text = "Information Entered Successfully"
-        lblTrackerMessage.isHidden = false
-        btnTrackerCancelYes.isHidden = true
-        btnTrackerCancelNo.isHidden = true
-        
-        
-    }
-    
-    @IBAction func clickTrackerCancel(_ sender: UIButton) {
-        lblTrackerMessage.text = "Are you sure?"
-        lblTrackerMessage.isHidden = false
-        btnTrackerCancelNo.isHidden = false
-        btnTrackerCancelYes.isHidden = false
-    }
-    
-    
-    @IBAction func clickTrackerCancelNo(_ sender: UIButton) {
-        lblTrackerMessage.isHidden = true
-        btnTrackerCancelYes.isHidden = true
-        btnTrackerCancelNo.isHidden = true
-        
-    }
-    
-    
-    
-    
+        let cells = self.tableView.visibleCells
 
+            for cell in cells {
+                let attendanceCell = cell as! AttendanceTableViewCell
+                attendanceCell.ddlAttendanceStatus.selectRow (0, inComponent:0, animated:true)
+            }
+    }
+    
+    @IBAction func clickCancel(_ sender: Any) {
+        lblMessage.text = "Are you sure?"
+        lblMessage.isHidden = false
+        btnCancelNo.isHidden = false
+        btnCancelYes.isHidden = false
+    }
+    
+    
+    @IBAction func clickSubmit(_ sender: Any) {
+        lblMessage.text = "Information Entered Successfully"
+        lblMessage.isHidden = false
+        btnCancelYes.isHidden = true
+        btnCancelNo.isHidden = true
+    }
 }
 
 

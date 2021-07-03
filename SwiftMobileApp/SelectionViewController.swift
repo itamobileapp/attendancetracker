@@ -29,6 +29,10 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var ddlBranch: UIPickerView!
     @IBOutlet weak var ddlGrade: UIPickerView!
     @IBOutlet weak var ddlSection: UIPickerView!
+    
+    var branch = ""
+    var grade = ""
+    var section = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +43,26 @@ class SelectionViewController: UIViewController {
         ddlSection.dataSource = self
         ddlSection.delegate = self
         btnSubmit.layer.cornerRadius = 10
-        btnSubmit.layer.cornerRadius = 10
-        btnSubmit.layer.cornerRadius = 10
+        btnSubmit.layer.masksToBounds = true
+        btnClear.layer.cornerRadius = 10
+        btnClear.layer.masksToBounds = true
         lblBranch.layer.cornerRadius = 10
+        lblBranch.layer.masksToBounds = true
         lblGrade.layer.cornerRadius = 10
+        lblGrade.layer.masksToBounds = true
         lblSection.layer.cornerRadius = 10
+        lblSection.layer.masksToBounds = true
         lblTeacher.layer.cornerRadius = 10
+        lblTeacher.layer.masksToBounds = true
         lblTeacherName.layer.cornerRadius = 10
+        lblTeacherName.layer.masksToBounds = true
         lblTeacherName.text = ""
         lblMessage.isHidden = true
-        
         btnOK.isHidden = true
+        lblMessage.textColor = UIColor.systemGreen
+
+        ddlBranch?.becomeFirstResponder();
+
     }
     
     @IBAction func clickSubmit(_ sender: UIButton) {
@@ -58,6 +71,11 @@ class SelectionViewController: UIViewController {
     }
     
     @IBAction func clickClear(_ sender: UIButton) {
+        ddlBranch.selectRow (0, inComponent:0, animated:true)
+        ddlGrade.selectRow (0, inComponent:0, animated:true)
+        ddlSection.selectRow (0, inComponent:0, animated:true)
+        lblTeacherName.text = ""
+
         lblMessage.isHidden = true
         btnOK.isHidden = true
     }
@@ -94,33 +112,52 @@ extension SelectionViewController: UIPickerViewDelegate, UIPickerViewDataSource 
 
     func pickerView(_ ddlCommon: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (ddlCommon == ddlSection) {
-            if dataSourceSection[row] == "Section A" {
-                lblTeacherName.text = "Ponmathi Rajendran"
-            }
-            else if dataSourceSection[row] == "Section B" {
-                lblTeacherName.text = "Subhashini Kannan"
-            }
+            section = dataSourceSection[row]
+            updateTeacherName()
         }
         else if (ddlCommon == ddlBranch) {
-            lblTeacherName.text = ""
+            ddlGrade.selectRow (0, inComponent:0, animated:true)
+            ddlSection.selectRow (0, inComponent:0, animated:true)
+            grade = dataSourceGrade[0]
+            section = dataSourceSection[0]
+            branch = dataSourceBranch[row]
+            updateTeacherName()
         }
         else if (ddlCommon == ddlGrade) {
-            lblTeacherName.text = ""
+            ddlSection.selectRow (0, inComponent:0, animated:true)
+            section = dataSourceSection[0]
+            grade = dataSourceGrade[row]
+            updateTeacherName()
         }
 
     }
 
     func pickerView(_ ddlCommon: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (ddlCommon == ddlSection) {
+            section = dataSourceSection[row]
             return dataSourceSection[row]
         }
         else if (ddlCommon == ddlBranch) {
+            branch = dataSourceBranch[row]
             return dataSourceBranch[row]
         }
         else if (ddlCommon == ddlGrade) {
+            grade = dataSourceGrade[row]
             return dataSourceGrade[row]
         }
         return ""
+    }
+    
+    func updateTeacherName() {
+        if (branch == "Evergreen" && grade == "Grade 2" &&  section == "Section A") {
+            lblTeacherName.text = "Ponmathi Rajendran"
+        }
+        else if (branch == "Evergreen" && grade == "Grade 2" &&  section == "Section B") {
+            lblTeacherName.text = "Subhashini Kannan"
+        }
+        else {
+            lblTeacherName.text = ""
+        }
     }
 }
 
