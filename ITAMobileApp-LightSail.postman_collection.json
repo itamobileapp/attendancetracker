@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "78b524e8-1292-4a7d-913d-7a853fc172a6",
+		"name": "ITAMobileApp-LightSail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserLogin-LS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "officer1@gmail.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "officer123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/userlogin",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"userlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BranchInfo-LS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/branchinfo",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"branchinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GradeInfo-LS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "branchid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/gradeinfo",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"gradeinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SectionInfo-LS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "gradeid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/sectioninfo",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"sectioninfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StudentInfo-LS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "sectionid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/studentinfo",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"studentinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubmitAttendance-LS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "studentId",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "date",
+						"value": "2021-09-12 ",
+						"type": "text"
+					},
+					{
+						"key": "status",
+						"value": "Present",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://itamobileapp.ubpficcc1ji4g.us-east-2.cs.amazonlightsail.com/submitattendance",
+					"protocol": "https",
+					"host": [
+						"itamobileapp",
+						"ubpficcc1ji4g",
+						"us-east-2",
+						"cs",
+						"amazonlightsail",
+						"com"
+					],
+					"path": [
+						"submitattendance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

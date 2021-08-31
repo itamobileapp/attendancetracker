@@ -1,0 +1,16 @@
+version: "2"
+services:
+   app:
+      build: ./python-itamobileapp
+      links:
+         - db
+      ports:
+         - "5000:5000"	
+   db:
+      image: mysql:8.0
+      ports:
+         - "32000:3306"
+      environment:
+         MYSQL_ROOT_PASSWORD: Tamizha1!
+      volumes:
+         - ./db:/docker-entrypoint-initdb.d/:ro
