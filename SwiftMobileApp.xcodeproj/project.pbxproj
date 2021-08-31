@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87A46C9E26DC7FEE00FC9B23 /* Collection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87A46C9D26DC7FEE00FC9B23 /* Collection.plist */; };
+		87A46CA026DC845400FC9B23 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A46C9F26DC845400FC9B23 /* Utils.swift */; };
 		87CBC0CF267FEFB7001991B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC0CE267FEFB7001991B3 /* AppDelegate.swift */; };
 		87CBC0D1267FEFB7001991B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC0D0267FEFB7001991B3 /* SceneDelegate.swift */; };
 		87CBC0D9267FEFB7001991B3 /* SwiftMobileApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC0D7267FEFB7001991B3 /* SwiftMobileApp.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87A46C9D26DC7FEE00FC9B23 /* Collection.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Collection.plist; sourceTree = "<group>"; };
+		87A46C9F26DC845400FC9B23 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		87CBC0CB267FEFB7001991B3 /* SwiftMobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CBC0CE267FEFB7001991B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CBC0D0267FEFB7001991B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		87CBC0C2267FEFB6001991B3 = {
 			isa = PBXGroup;
 			children = (
+				87A46C9F26DC845400FC9B23 /* Utils.swift */,
+				87A46C9D26DC7FEE00FC9B23 /* Collection.plist */,
 				87CBC103267FF5CB001991B3 /* SelectionViewController.swift */,
 				87CBC106267FF5CD001991B3 /* Selection.storyboard */,
 				87CBC108267FF5CF001991B3 /* Table.storyboard */,
@@ -258,6 +264,7 @@
 				87CBC0DE267FEFC8001991B3 /* LaunchScreen.storyboard in Resources */,
 				87CBC10E267FF5CF001991B3 /* Table.storyboard in Resources */,
 				87CBC0DB267FEFC8001991B3 /* Assets.xcassets in Resources */,
+				87A46C9E26DC7FEE00FC9B23 /* Collection.plist in Resources */,
 				87CBC10D267FF5CF001991B3 /* Tracker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +293,7 @@
 				87CBC10B267FF5CF001991B3 /* ViewController.swift in Sources */,
 				87CBC109267FF5CF001991B3 /* SelectionViewController.swift in Sources */,
 				87CBC0D9267FEFB7001991B3 /* SwiftMobileApp.xcdatamodeld in Sources */,
+				87A46CA026DC845400FC9B23 /* Utils.swift in Sources */,
 				87CBC10A267FF5CF001991B3 /* TrackerViewController.swift in Sources */,
 				87CBC0CF267FEFB7001991B3 /* AppDelegate.swift in Sources */,
 				87CBC0D1267FEFB7001991B3 /* SceneDelegate.swift in Sources */,
