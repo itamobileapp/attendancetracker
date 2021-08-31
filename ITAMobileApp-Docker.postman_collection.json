@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "20a1cb0b-ab7a-4382-85f9-601df6bedb18",
+		"name": "ITAMobileApp-Docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserLogin-Docker",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "officer1@gmail.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "officer123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8083/userlogin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"userlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BranchInfo-Docker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8083/branchinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"branchinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GradeInfo-Docker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "branchid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8083/gradeinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"gradeinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SectionInfo-Docker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "gradeid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8083/sectioninfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"sectioninfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StudentInfo-Docker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "sectionid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8083/studentinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8083",
+					"path": [
+						"studentinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubmitAttendance-Docker",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "studentId",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "date",
+						"value": "2021-09-12 ",
+						"type": "text"
+					},
+					{
+						"key": "status",
+						"value": "Present",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/submitattendance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"submitattendance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

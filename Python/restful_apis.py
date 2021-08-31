@@ -4,13 +4,20 @@ Middleware Logic - Python RESTful APIs
 
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-import sqlite3
+import mysql.connector
 
 # Create Flask app / api
 app = Flask(__name__)
 api = Api(app)
 
-DB_PATH = './TestDatabase/newtestdb.db'
+
+#DB_PATH = './TestDatabase/newtestdb.db'
+
+def connectToMySQL():
+    cnx = mysql.connector.connect(user='itamobileapp', password='Tamizha1!',
+                                  host='ls-dc26922938a0c9a784a5fddc6297f8b91c0f9e89.cro5gvtdewyh.us-east-2.rds.amazonaws.com',
+                                  database='dbitamobileapp')
+    return cnx
 
 
 
@@ -25,19 +32,20 @@ class UserLogin(Resource):
         args = parser.parse_args()
         email = args['email']
         password = args['password']
+        match = None
 
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
-    
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
+
         cursor.execute(f'''
         SELECT UserInfo.Email \
             FROM UserInfo \
                 WHERE '{email}' = UserInfo.Email \
-                    AND '{password}' = UserInfo.Password 
+                    AND '{password}' = UserInfo.Password
         ''')
 
         match = cursor.fetchone()
-        connection.close()
+        cnx.close()
 
         if match is None:
             return "Login Failure", 401
@@ -50,8 +58,8 @@ class UserLogin(Resource):
 class BranchInfo(Resource):
 
     def get(self):
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
 
         cursor.execute('''
         SELECT BranchInfo.BranchId, BranchInfo.BranchName \
@@ -59,7 +67,7 @@ class BranchInfo(Resource):
         ''')
 
         branches = cursor.fetchall()
-        connection.close()
+        cnx.close()
 
         if branches is None or not len(branches):
             return {}, 404
@@ -73,7 +81,7 @@ class BranchInfo(Resource):
 
 # Retrieve Grade Info (GET)
 class GradeInfo(Resource):
-    
+
     def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('branchId', location='headers', required=True)
@@ -81,8 +89,8 @@ class GradeInfo(Resource):
         args = parser.parse_args()
         branch_id = int(args['branchId'])
 
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
 
         cursor.execute(f'''
         SELECT GradeInfo.GradeId, GradeInfo.GradeName \
@@ -91,7 +99,7 @@ class GradeInfo(Resource):
         ''')
 
         grades = cursor.fetchall()
-        connection.close()
+        cnx.close()
 
         if grades is None or not len(grades):
             return {}, 404
@@ -99,13 +107,13 @@ class GradeInfo(Resource):
             grade_dict = {}
             for id, grade in grades:
                 grade_dict[id] = grade
-            return grade_dict, 200        
+            return grade_dict, 200
 
 
 
 # Retrieve Section Info (GET)
 class SectionInfo(Resource):
-    
+
     def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('gradeId', location='headers', required=True)
@@ -113,8 +121,8 @@ class SectionInfo(Resource):
         args = parser.parse_args()
         grade_id = int(args['gradeId'])
 
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
 
         cursor.execute(f'''
         SELECT SectionInfo.SectionId, SectionInfo.SectionName, SectionInfo.TeacherName \
@@ -123,7 +131,7 @@ class SectionInfo(Resource):
         ''')
 
         sections = cursor.fetchall()
-        connection.close()
+        cnx.close()
 
         if sections is None or not len(sections):
             return {}, 404
@@ -145,8 +153,8 @@ class StudentInfo(Resource):
         args = parser.parse_args()
         section_id = int(args['sectionId'])
 
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
 
         cursor.execute(f'''
         SELECT StudentInfo.StudentId, StudentInfo.StudentName \
@@ -155,7 +163,7 @@ class StudentInfo(Resource):
         ''')
 
         students = cursor.fetchall()
-        connection.close()
+        cnx.close()
 
         if students is None or not len(students):
             return {}, 404
@@ -181,33 +189,33 @@ class SubmitAttendance(Resource):
         date = args['date']
         status = args['status']
 
-        connection = sqlite3.connect(DB_PATH)
-        cursor = connection.cursor()
+        cnx = connectToMySQL()
+        cursor = cnx.cursor()
 
         cursor.execute(f'''
         SELECT EntryId \
             From AttendanceInfo \
                 WHERE {student_id} = AttendanceInfo.StudentId \
-                    AND '{date}' = AttendanceInfo.Date
+                    AND '{date}' = AttendanceInfo.AttendanceDate
         ''')
 
         match = cursor.fetchall()
         if match is None or not len(match):
             cursor.execute(f'''
-            INSERT INTO AttendanceInfo (StudentId, Date, Status) \
+            INSERT INTO AttendanceInfo (StudentId, AttendanceDate, AttendanceStatus) \
                 VALUES ({student_id}, '{date}', '{status}')
             ''')
-            connection.commit()
-            connection.close()
+            cnx.commit()
+            cnx.close()
             return "Successfully Submitted", 200
         else:
             cursor.execute(f'''
-            UPDATE AttendanceInfo SET Status = '{status}' \
+            UPDATE AttendanceInfo SET AttendanceStatus = '{status}' \
                 WHERE {student_id} = AttendanceInfo.StudentId \
-                    AND '{date}' = AttendanceInfo.Date
+                    AND '{date}' = AttendanceInfo.AttendanceDate
             ''')
-            connection.commit()
-            connection.close()
+            cnx.commit()
+            cnx.close()
             return "Successfully Updated", 200
 
 
@@ -223,4 +231,4 @@ api.add_resource(SubmitAttendance, '/submitattendance')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

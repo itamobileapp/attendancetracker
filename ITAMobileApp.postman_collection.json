@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "1f69f663-6253-4efb-a468-b21b350b7bdf",
+		"name": "ITAMobileApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UserLogin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "email",
+						"value": "officer1@gmail.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "officer123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/userlogin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"userlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BranchInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/branchinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"branchinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GradeInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "branchid",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/gradeinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"gradeinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SectionInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "gradeid",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/sectioninfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"sectioninfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StudentInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "sectionid",
+						"value": "6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/studentinfo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"studentinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubmitAttendance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "studentId",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "date",
+						"value": "2021-09-12 ",
+						"type": "text"
+					},
+					{
+						"key": "status",
+						"value": "Present",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/submitattendance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"submitattendance"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
