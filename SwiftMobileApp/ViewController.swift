@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    lazy var txt: String = ""
+
 
     @IBOutlet weak var txtLogin: UITextField?
     @IBOutlet weak var lblLogin: UILabel!
@@ -17,27 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblPassword: UILabel!
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var txtPassword: UITextField?
-    
-    @IBOutlet weak var lblSubmitLogin: UILabel!
+    @IBOutlet weak var btnOK: UIButton!
+    @IBOutlet weak var lblMessage: UILabel!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblPassword.layer.cornerRadius = 5
         lblPassword.layer.masksToBounds = true
         btnSubmit.layer.cornerRadius = 10
         btnCancel.layer.cornerRadius = 10
+        btnOK.layer.cornerRadius = 5
         lblLogin.layer.cornerRadius = 5
         lblLogin.layer.masksToBounds = true
-<<<<<<< Updated upstream
-     //   lblSuccess.layer.cornerRadius = 5
-        lblSubmitLogin.layer.cornerRadius = 5
-        
-        
-        //txtLogin.heightAnchor = 40
-        // Do any additional setup after loading the view.
-    }
-=======
         lblMessage.layer.cornerRadius = 5
         lblMessage?.isHidden = true;
         btnOK?.isHidden = true
@@ -45,14 +36,33 @@ class ViewController: UIViewController {
     }
     
     
->>>>>>> Stashed changes
+    private func parseJSON() {
+        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
+            
+            return
+        }
+        let url = URL(fileURLWithPath: path)
+        
+        var result: Result?
+        do {
+            let jsonData = try Data(contentsOf: url)
+            result = try JSONDecoder().decode(Result.self, from:jsonData)
+            
+            if let result = result {
+                print(result)
+            }
+            else {
+                print ("Failed to pass")
+            }
+        }
+        catch {
+            print ("Error: \(error)")
+        }
+    }
+    
     
     @IBAction func clickSubmit(_ sender: UIButton) {
-<<<<<<< Updated upstream
-        lblSubmitLogin.isHidden = false
-  
-    }
-=======
+        
         if (txtLogin?.text  == "") {
             lblMessage?.textColor = UIColor.red
             lblMessage?.isHidden = false
@@ -66,31 +76,35 @@ class ViewController: UIViewController {
         else {
             lblMessage?.isHidden = false
             lblMessage?.textColor = UIColor.systemGreen
-            btnOK?.isHidden = false
             let dict:Dictionary<String?, String?> = ["email": txtLogin?.text, "password": txtPassword?.text]
             let trailingUrl:String = Utils.userLogin
             let request:URLRequest = Utils.createHttpPostRequest(dict: dict, trailingUrl: trailingUrl)
             Utils.sendPostRequest(request: request, completion: completion)
+            btnOK?.isHidden = false
         }
     }
     
     let completion: (String, Error?) -> Void = {
         data, error in
             print(data)
-            lblMessage?.text = data
     }
     
->>>>>>> Stashed changes
-    
     @IBAction func clickClear(_ sender: UIButton) {
-        lblSubmitLogin.isHidden = true
+        lblMessage?.isHidden = true
+        btnOK?.isHidden = true
+        txtLogin?.text = ""
         txtLogin?.text = ""
         txtPassword?.text = ""
-        
-        
-        
-        
+        txtLogin?.becomeFirstResponder();
     }
     
 }
+
+struct Result: Codable {
+    let userId : String
+    let pwd : String
+}
+
+
+
 
