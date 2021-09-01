@@ -38,19 +38,19 @@ class UserLogin(Resource):
         cursor = cnx.cursor()
 
         cursor.execute(f'''
-        SELECT UserInfo.Email \
+        SELECT UserInfo.idUserInfo \
             FROM UserInfo \
                 WHERE '{email}' = UserInfo.Email \
                     AND '{password}' = UserInfo.Password
         ''')
 
-        match = cursor.fetchone()
+        _id = cursor.fetchone()
         cnx.close()
 
-        if match is None:
-            return "Login Failure", 401
+        if _id == None:
+            return _id, 401
         else:
-            return "Login Success", 200
+            return _id, 200
 
 
 
