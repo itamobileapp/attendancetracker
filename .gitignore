@@ -1,2 +1,6 @@
-/SwiftMobileApp/SwiftMobileApp/.DS_Store
+.DS_Store
+/SwiftMobileApp/.DS_Store
 /SwiftMobileApp/SwiftMobileApp.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+/SwiftMobileApp/SwiftMobileApp.xcodeproj/project.xcworkspace/xcuserdata/sramanathan.xcuserdatad/UserInterfaceState.xcuserstate
+/Python/__pycache__/*.*
+

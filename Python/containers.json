@@ -1,0 +1,8 @@
+{
+   "itamobileapp": {
+      "image": ":itamobileapp.itamobileapp.7",
+       "ports": {
+                    "5000": "HTTP"
+               }
+        }
+}
