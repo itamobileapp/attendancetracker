@@ -50,7 +50,7 @@ class UserLogin(Resource):
         if _id == None:
             return _id, 401
         else:
-            return _id, 200
+            return _id[0], 200
 
 
 
@@ -207,7 +207,7 @@ class SubmitAttendance(Resource):
             ''')
             cnx.commit()
             cnx.close()
-            return "Successfully Submitted", 200
+            return "1", 200
         else:
             cursor.execute(f'''
             UPDATE AttendanceInfo SET AttendanceStatus = '{status}' \
@@ -216,7 +216,7 @@ class SubmitAttendance(Resource):
             ''')
             cnx.commit()
             cnx.close()
-            return "Successfully Updated", 200
+            return "1", 200
 
 
 

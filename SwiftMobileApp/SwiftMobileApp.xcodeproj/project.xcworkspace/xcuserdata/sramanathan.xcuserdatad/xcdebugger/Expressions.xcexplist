@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in SelectionViewController.getData(dict:trailingUrl:tag:completed:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static Utils.sendGetRequestMultiple(request:completion:):Utils.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TrackerViewController.clickSubmit(_:):TrackerViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.getData():SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listOfBranches">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Utils.sendGetRequest(request:completion:):Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.url">
+            </PersistentString>
+            <PersistentString
+               value = "request.allHTTPHeaderFields">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.getSectionIdForTeacher(idName:dict:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "value![3]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackerViewController.tableView(_:numberOfRowsInSection:):TrackerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.studentName">
+            </PersistentString>
+            <PersistentString
+               value = "studentName">
+            </PersistentString>
+            <PersistentString
+               value = "self.student">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TrackerViewController.clickSubmit(_:):TrackerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TrackerViewController.tableView(_:numberOfRowsInSection:):TrackerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.student.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static Utils.sendPostRequest(request:completion:):Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "request">
+            </PersistentString>
+            <PersistentString
+               value = "httpResponse.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in SelectionViewController.getData(dict:trailingUrl:tag:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.getData(dict:trailingUrl:tag:completed:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SelectionViewController.getData():SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dataSourceBranch">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in static Utils.sendPostRequest(request:completion:):Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Swift.Int(resp)">
+            </PersistentString>
+            <PersistentString
+               value = "data">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in closure #1 in static Utils.sendPostRequest(request:completion:):Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "resp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.pickerView(_:numberOfRowsInComponent:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "listOfBranches">
+            </PersistentString>
+            <PersistentString
+               value = "pickerView.tag">
+            </PersistentString>
+            <PersistentString
+               value = "self.gradeCount">
+            </PersistentString>
+            <PersistentString
+               value = "self.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.getNameFromPair(idName:arr:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "components[1].components(separatedBy:&quot;,&quot;)[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #3 in SelectionViewController.getData(dict:trailingUrl:tag:completed:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict_val![key]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SelectionViewController.getData(dict:trailingUrl:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in SelectionViewController.sendGetRequestSingleForBranch(request:completion:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in SelectionViewController.pickerView(_:numberOfRowsInComponent:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.gradeCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TrackerViewController.viewDidLoad():TrackerViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lblSection">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in static Utils.sendGetRequest(request:completion:):Utils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.pickerView(_:titleForRow:forComponent:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "section">
+            </PersistentString>
+            <PersistentString
+               value = "branchId">
+            </PersistentString>
+            <PersistentString
+               value = "branch">
+            </PersistentString>
+            <PersistentString
+               value = "txtGrade.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.clickSubmit(_:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.selectedSectionId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.getName(idName:arr:):SelectionViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SelectionViewController.pickerView(_:didSelectRow:inComponent:):SelectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "branchName[row]">
+            </PersistentString>
+            <PersistentString
+               value = "section">
+            </PersistentString>
+            <PersistentString
+               value = "txtBranch.text">
+            </PersistentString>
+            <PersistentString
+               value = "self.selectedSectionId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

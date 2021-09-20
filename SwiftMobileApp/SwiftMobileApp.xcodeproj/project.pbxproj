@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87A5D04E26F7DFA300B0511A /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC106267FF5CD001991B3 /* Selection.storyboard */; };
+		87A5D05226F7EC3100B0511A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A5D05126F7EC3100B0511A /* Assets.xcassets */; };
 		87CBC0E9267FEFCA001991B3 /* SwiftMobileAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC0E8267FEFCA001991B3 /* SwiftMobileAppTests.swift */; };
 		87CBC0F4267FEFCB001991B3 /* SwiftMobileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC0F3267FEFCB001991B3 /* SwiftMobileAppUITests.swift */; };
 		87CBC102267FF56A001991B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC101267FF56A001991B3 /* Main.storyboard */; };
 		87CBC109267FF5CF001991B3 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC103267FF5CB001991B3 /* SelectionViewController.swift */; };
 		87CBC10A267FF5CF001991B3 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC104267FF5CB001991B3 /* TrackerViewController.swift */; };
 		87CBC10B267FF5CF001991B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC105267FF5CC001991B3 /* ViewController.swift */; };
-		87CBC10C267FF5CF001991B3 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC106267FF5CD001991B3 /* Selection.storyboard */; };
 		87CBC10D267FF5CF001991B3 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC107267FF5CE001991B3 /* Tracker.storyboard */; };
 		87CBC10E267FF5CF001991B3 /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC108267FF5CF001991B3 /* Table.storyboard */; };
 		87E5C6D926DDF02700AA6EF0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E5C6D826DDF02700AA6EF0 /* Utils.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87A5D05126F7EC3100B0511A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87CBC0CB267FEFB7001991B3 /* SwiftMobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CBC0E4267FEFCA001991B3 /* SwiftMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CBC0E8267FEFCA001991B3 /* SwiftMobileAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMobileAppTests.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				87CBC106267FF5CD001991B3 /* Selection.storyboard */,
 				87CBC108267FF5CF001991B3 /* Table.storyboard */,
 				87CBC104267FF5CB001991B3 /* TrackerViewController.swift */,
+				87A5D05126F7EC3100B0511A /* Assets.xcassets */,
 				87CBC107267FF5CE001991B3 /* Tracker.storyboard */,
 				87CBC105267FF5CC001991B3 /* ViewController.swift */,
 				87CBC101267FF56A001991B3 /* Main.storyboard */,
@@ -237,9 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CBC102267FF56A001991B3 /* Main.storyboard in Resources */,
-				87CBC10C267FF5CF001991B3 /* Selection.storyboard in Resources */,
 				87CBC10E267FF5CF001991B3 /* Table.storyboard in Resources */,
+				87A5D04E26F7DFA300B0511A /* Selection.storyboard in Resources */,
 				87E5C6DB26DDF03300AA6EF0 /* Collection.plist in Resources */,
+				87A5D05226F7EC3100B0511A /* Assets.xcassets in Resources */,
 				87CBC10D267FF5CF001991B3 /* Tracker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

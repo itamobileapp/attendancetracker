@@ -10,6 +10,8 @@ SwiftMobile is the directory that contains the Swift UI, controller and plist fi
 
 XCode version 12 is required.
 
+[Here](https://www.donnywals.com/appropriately-using-dispatchqueue-main/) is a good article on understanding DispatchQueue
+
 ## Python
 
 The middleware code uses Python and runs as a Flask App in an AWS LightSail container.
@@ -144,6 +146,11 @@ Every time, the docker image is updated, you will have to repeat step 6 that pus
         insert into StudentInfo (SectionId, StudentName) values (3, 'Krithiwas Neelakantan');
         insert into StudentInfo (SectionId, StudentName) values (3, 'Novex Alex');
         insert into StudentInfo (SectionId, StudentName) values (3, 'Murali Gowrisankar');
+
+        insert into StudentInfo (SectionId, StudentName) values (4, 'Krishna Goplan');
+        insert into StudentInfo (SectionId, StudentName) values (4, 'Pannerselvam Duraiswamy');
+        insert into StudentInfo (SectionId, StudentName) values (4, 'Justin Baker');
+        insert into StudentInfo (SectionId, StudentName) values (4, 'Ranjani Gayatri');
 
         insert into StudentInfo (SectionId, StudentName) values (6, 'Sheikh Mohammad');
         insert into StudentInfo (SectionId, StudentName) values (6, 'Satish Thirumalai');
