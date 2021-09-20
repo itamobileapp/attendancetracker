@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
-
+    let userDefaults = UserDefaults.standard
+    
     @IBOutlet weak var txtLogin: UITextField?
     @IBOutlet weak var lblLogin: UILabel!
     @IBOutlet weak var btnCancel: UIButton!
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtLogin?.delegate = self
+        txtPassword?.delegate = self
         lblPassword.layer.cornerRadius = 5
         lblPassword.layer.masksToBounds = true
         btnSubmit.layer.cornerRadius = 10
@@ -32,37 +35,21 @@ class ViewController: UIViewController {
         lblMessage.layer.cornerRadius = 5
         lblMessage?.isHidden = true;
         btnOK?.isHidden = true
+        
+        txtLogin?.placeholder = "Enter your email address"
+        txtPassword?.placeholder = "Enter your password"
+        
         txtLogin?.becomeFirstResponder();
+        
     }
     
-    
-    private func parseJSON() {
-        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
-            
-            return
-        }
-        let url = URL(fileURLWithPath: path)
-        
-        var result: Result?
-        do {
-            let jsonData = try Data(contentsOf: url)
-            result = try JSONDecoder().decode(Result.self, from:jsonData)
-            
-            if let result = result {
-                print(result)
-            }
-            else {
-                print ("Failed to pass")
-            }
-        }
-        catch {
-            print ("Error: \(error)")
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     
     @IBAction func clickSubmit(_ sender: UIButton) {
-        
         if (txtLogin?.text  == "") {
             lblMessage?.textColor = UIColor.red
             lblMessage?.isHidden = false
@@ -74,19 +61,27 @@ class ViewController: UIViewController {
             lblMessage?.text = "Please enter the Password"
         }
         else {
-            lblMessage?.isHidden = false
-            lblMessage?.textColor = UIColor.systemGreen
+            btnOK?.isHidden = true
+            lblMessage?.textColor = UIColor.red
             let dict:Dictionary<String?, String?> = ["email": txtLogin?.text, "password": txtPassword?.text]
             let trailingUrl:String = Utils.userLogin
-            let request:URLRequest = Utils.createHttpPostRequest(dict: dict, trailingUrl: trailingUrl)
-            Utils.sendPostRequest(request: request, completion: completion)
-            btnOK?.isHidden = false
+            let request:URLRequest = Utils.createHttpRequest(dict: dict, trailingUrl: trailingUrl, method: "POST")
+            Utils.sendPostRequest(request: request, completion: { (data, error) in
+                do {
+                    let returnVal = Swift.Int(data)!
+                    if (returnVal > 0) {
+                        self.lblMessage?.isHidden = true
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionViewController
+                        self.present(nextViewController, animated:true, completion:nil)                        
+                    }
+                    else {
+                        self.lblMessage?.isHidden = false
+                        self.lblMessage.text = "Please verify your credentials."
+                    }
+                }
+            })
         }
-    }
-    
-    let completion: (String, Error?) -> Void = {
-        data, error in
-            print(data)
     }
     
     @IBAction func clickClear(_ sender: UIButton) {
